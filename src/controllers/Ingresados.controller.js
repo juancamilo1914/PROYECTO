@@ -5,7 +5,7 @@ const { eliminarVehiculo } = require('../services/Ingresados.service');
 const controlador = {};
 
 controlador.obtenerIngresados = async (req, res) => {
-    const listaIngresados = await ingresadosModel.find()
+    const listaIngresados = await ingresadosMoodel.find()
     res.json(listaIngresados)
 }
 
