@@ -1,5 +1,11 @@
-const mongoose = require ("mongoose")
+const mongoose = require("mongoose");
+const url = "mongodb+srv://juanvalencia191410:KCK46sgssfNLuBX3@clearmechanic.slfnrxu.mongodb.net";
 
-mongoose.connect('mongodb://localhost:27017/ingreso_de_datos')
-  .then(() => console.log('Conectado exitosamente a MongoDB'))
-  .catch(err => console.error('Error al conectar a MongoDB:', err));
+mongoose
+    .connect(url)
+    .then(() => {
+        console.log("Base de datos en ejecución");
+    })
+    .catch((error) => {
+        console.log("Error al conectar, mira el error: " + error);
+    });
