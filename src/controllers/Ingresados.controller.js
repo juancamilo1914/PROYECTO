@@ -1,18 +1,19 @@
-const ingresadosMoodel = require('../models/Ingresados.Model')
+const ingresadosModel = require('../models/Ingresados.Model')
 const respuesta = require('../helpers/helpersClear');
 const { eliminarVehiculo } = require('../services/Ingresados.service');
+
 
 const controlador = {};
 
 controlador.obtenerIngresados = async (req, res) => {
-    const listaIngresados = await ingresadosMoodel.find()
+    const listaIngresados = await ingresadosModel.find()
     res.json(listaIngresados)
 }
 
 controlador.nuevoIngreso = async (req, res) => {
     try{
         const body = req.body;
-        const nuevoVehiculo = new ingresadosMoodel(body)
+        const nuevoVehiculo = new ingresadosModel(body)
 
         await nuevoVehiculo.save();
 
@@ -35,7 +36,19 @@ controlador.nuevoIngreso = async (req, res) => {
 
         res.status(500).json(respuesta)
     }
-}
+},
+controlador.actualizarVehiculo = async (req, res) => {
+    try {
+        const actualizarVehiculo = await Vehiculo.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+        res.status(200).json(actualizarVehiculo);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+};
 controlador.eliminarVehiculo = async (req, res) => {
     const id = req.params.id;
     const response = await eliminarVehiculo(id);
