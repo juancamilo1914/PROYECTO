@@ -6,7 +6,7 @@ const controlador = {};
 
 controlador.obtenerPropietario = async (req, res) => {
     const listaIngresados = await ingresadosModel.find()
-    res,json(listaIngresados)
+    res.json(listaIngresados)
 }
 
 controlador.nuevoPropietario = async (req, res) => {
