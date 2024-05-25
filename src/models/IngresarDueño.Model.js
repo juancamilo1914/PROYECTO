@@ -1,4 +1,4 @@
-// src/models/IngresarDueño.Model.js
+// src/models/IngresarDueño.Modjsel.
 const { Schema, model } = require("mongoose");
 
 const PropietarioSchema = new Schema({
