@@ -7,7 +7,8 @@ const RoutesPropietario = require('../routes/IngresarPropietario.routes')
 const RoutesInventario = require("../routes/Inventario.routes")
 const RoutesPresupuesto = require("../routes/Presupuesto.routes")
 
-app.use(cors())
+app.use(cors({ origin: 'http://localhost:4200' }));
+
 app.use(express.json())
 app.use(Routes)
 app.use(RoutesPropietario)
